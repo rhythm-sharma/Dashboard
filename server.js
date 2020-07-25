@@ -1,11 +1,19 @@
 const express = require("express");
 const path = require("path");
 const app = express();
+const favicon = require("serve-favicon");
 
 const baseEndpoint = "/api/v1";
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, "/client/build")));
+
+// Favicon
+try {
+  app.use(favicon(__dirname + "/client/build/favicon.ico"));
+} catch (error) {
+  console.log("Unable to show favicon");
+}
 
 // Require & Import API routes
 const usersRouter = require("./mock-server/routes/users");
