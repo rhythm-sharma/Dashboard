@@ -2,13 +2,13 @@
   "name": "dashboard",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
+    "start": "node server.js",
     "heroku-postbuild": "cd client && npm install && npm run build",
     "dev-client-start": "cd client && npm run start",
-    "dev-server-start": "nodemon index.js",
+    "dev-server-start": "nodemon server.js",
     "dev-start": "run-p dev-server-start dev-client-start",
     "dev-install": "npm install && cd client && npm install"
   },

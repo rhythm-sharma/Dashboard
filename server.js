@@ -1,17 +1,17 @@
 const express = require("express");
 const path = require("path");
-const usersJsonFile = require("./users.json");
-
 const app = express();
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, "client/build")));
+const baseEndpoint = "/api/v1";
 
-// Put all API endpoints under '/api'
-app.get("/api/users", (req, res) => {
-  // Return them as json
-  res.json(usersJsonFile);
-});
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, "/client/build")));
+
+// Require & Import API routes
+const usersRouter = require("./mock-server/routes/users");
+
+// Use API Routes
+app.use(`${baseEndpoint}/users`, usersRouter);
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
@@ -23,4 +23,4 @@ app.get("*", (req, res) => {
 const port = process.env.PORT || 5000;
 app.listen(port);
 
-console.log(`Password generator listening on ${port}`);
+console.log(`listening on port:  ${port}`);

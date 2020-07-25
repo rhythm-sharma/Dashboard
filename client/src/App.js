@@ -19,7 +19,7 @@ const useFetch = (url) => {
 };
 
 function App() {
-  const [users] = useFetch("/api/users");
+  const [users] = useFetch("/api/v1/users");
 
   console.log("users: ", users);
 
