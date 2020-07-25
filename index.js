@@ -1,11 +1,8 @@
 const express = require("express");
 const path = require("path");
-const cors = require("cors");
+const usersJsonFile = require("./users.json");
 
 const app = express();
-
-// handle CORS
-app.use(cors());
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, "client/build")));
@@ -13,7 +10,7 @@ app.use(express.static(path.join(__dirname, "client/build")));
 // Put all API endpoints under '/api'
 app.get("/api/users", (req, res) => {
   // Return them as json
-  res.json("hello");
+  res.json(usersJsonFile);
 });
 
 // The "catchall" handler: for any request that doesn't
@@ -22,6 +19,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 
+// setting up port to 5000
 const port = process.env.PORT || 5000;
 app.listen(port);
 
