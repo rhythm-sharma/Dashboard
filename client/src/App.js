@@ -25,7 +25,13 @@ class App extends Component {
           </a>
         </nav>
         <div className="body-container">
-          <div className="card-container card-group align-content-center p-3">
+          <div
+            className={
+              usersData.fetchingState === "loading" &&
+              "loading-container " +
+                "card-container card-group align-content-center p-3"
+            }
+          >
             {usersData.fetchingState === "loading" && (
               <div class="spinner-border spinner-container">
                 <span class="sr-only">Loading...</span>

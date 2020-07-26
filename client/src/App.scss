@@ -37,3 +37,10 @@ body {
   margin-top: 7em;
   color: #c7cde0;
 }
+
+$breakpoint-sm-mobile: 575px;
+@media (max-width: $breakpoint-sm-mobile) {
+  .loading-container {
+    display: flex !important;
+  }
+}
