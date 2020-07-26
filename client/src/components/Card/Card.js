@@ -10,6 +10,10 @@ class Card extends Component {
     };
   }
 
+  /*
+    Handles the show and hide event of Modal
+    It is passed down to ActivityModal(child component) as a callback
+  */
   setShowModal = (arg) => {
     this.setState({ showModal: arg });
   };

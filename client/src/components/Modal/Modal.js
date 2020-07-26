@@ -1,81 +1,30 @@
 import React, { Component } from "react";
 import Modal from "react-bootstrap/Modal";
 import Calender from "../Calender/Calender";
+import TimeLine from "../Timeline/Timeline";
 import "./Modal.scss";
 
 class ActivityModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentBtn: "timeline",
+      currentLayout: "timeline", // setting the initial layout as TimeLine
     };
   }
 
-  componentDidMount() {
-    console.log("activityData: ", this.props.activityData);
-  }
-
-  extractTime = (time) => {
-    return time.split(" ")[time.split(" ").length - 1];
-  };
-
-  handleDatePrefix = (date) => {
-    return date.length === 1 ? "0" + date : date;
-  };
-
+  /*
+    It handles the layout of Modal
+    Modal has two types of layout supported
+    1. Timeline  
+    2. Calender
+  */
   handleViewBtnToggle = (btn) => {
-    this.setState({ currentBtn: btn });
+    this.setState({ currentLayout: btn });
   };
 
   render() {
     const { activityData } = this.props;
-    const { currentBtn } = this.state;
-
-    let timeLine = activityData.activity_periods.map((item, index) => {
-      if (index % 2 === 0) {
-        return (
-          <li key={index}>
-            <div className="timeline-badge info"></div>
-            <div className="timeline-panel">
-              <div className="timeline-time">
-                <p className="start-title">
-                  {this.extractTime(item.start_time)}
-                </p>
-                <p className="text-muted">{this.extractTime(item.end_time)}</p>
-              </div>
-              <div className="timeline-date">
-                <div>{item.start_time.split(" ")[0]}</div>
-                <div>
-                  {this.handleDatePrefix(item.start_time.split(" ")[1])}
-                </div>
-                <div>{item.start_time.split(" ")[2]}</div>
-              </div>
-            </div>
-          </li>
-        );
-      } else {
-        return (
-          <li key={index} className="timeline-inverted">
-            <div className="timeline-badge warning"></div>
-            <div className="timeline-panel">
-              <div className="timeline-time">
-                <p className="start-title">
-                  {this.extractTime(item.start_time)}
-                </p>
-                <p className="text-muted">{this.extractTime(item.end_time)}</p>
-              </div>
-              <div className="timeline-date">
-                <div>{item.start_time.split(" ")[0]}</div>
-                <div>
-                  {this.handleDatePrefix(item.start_time.split(" ")[1])}
-                </div>
-                <div>{item.start_time.split(" ")[2]}</div>
-              </div>
-            </div>
-          </li>
-        );
-      }
-    });
+    const { currentLayout } = this.state;
 
     return (
       <Modal
@@ -99,7 +48,7 @@ class ActivityModal extends Component {
               <button
                 type="button"
                 className={
-                  currentBtn === "timeline" ? "btn cover" : "btn outline"
+                  currentLayout === "timeline" ? "btn cover" : "btn outline"
                 }
                 onClick={() => this.handleViewBtnToggle("timeline")}
               >
@@ -108,19 +57,17 @@ class ActivityModal extends Component {
               <button
                 type="button"
                 className={
-                  currentBtn === "calender" ? " btn cover" : "btn outline"
+                  currentLayout === "calender" ? " btn cover" : "btn outline"
                 }
                 onClick={() => this.handleViewBtnToggle("calender")}
               >
                 Calender <i className="far fa-calendar-alt ml-2"></i>
               </button>
             </div>
-            {currentBtn === "timeline" ? (
-              <ul className="timeline">{timeLine}</ul>
+            {currentLayout === "timeline" ? (
+              <TimeLine activityPeriods={activityData.activity_periods} />
             ) : (
-              <div>
-                <Calender activityPeriods={activityData.activity_periods} />
-              </div>
+              <Calender activityPeriods={activityData.activity_periods} />
             )}
           </div>
         </Modal.Body>

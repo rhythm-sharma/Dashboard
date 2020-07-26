@@ -1,10 +1,15 @@
 import React, { Component } from "react";
+import ContentLoader from "react-content-loader";
 import { connect } from "react-redux";
 import { fetchUserData } from "./actions/index";
 import CardContainer from "./components/Card/CardContainer.js";
 import "./App.scss";
 
 class App extends Component {
+  /*
+    fetchUserData: It fetches the users information by updating the states using redux-thunk
+  */
+
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(fetchUserData());

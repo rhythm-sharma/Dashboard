@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Calendar, momentLocalizer, Views } from "react-big-calendar";
+import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "./Calender.scss";
@@ -17,6 +17,11 @@ class Calender extends Component {
     };
   }
 
+  /*
+    Inside componentDidMount following things are done
+    1. creating an online-offline event object and pushing it to the tempEvents array 
+    2. adding the last event date to viewDate(it will redirect to given date when calender opens )
+  */
   componentDidMount() {
     const activityPeriods = this.props.activityPeriods;
     let tempEvents = [];
@@ -36,9 +41,11 @@ class Calender extends Component {
     });
   }
 
+  /*
+    It return the new Date object from given date string
+  */
   createNewDate = (date) => {
     let tempDate = date.split(/\s+/);
-    let newDate = null;
     tempDate[0] = this.getMonthNumber(tempDate[0]);
     tempDate[3] = this.convertTime12to24(tempDate[3].replace(/.{2}$/, " $&"));
     const year = tempDate[2];
@@ -49,6 +56,9 @@ class Calender extends Component {
     return new Date(year, month, day, hours, minutes);
   };
 
+  /*
+    It return the month index from given month name 
+  */
   getMonthNumber = (month) => {
     const months = [
       "Jan",
@@ -75,6 +85,9 @@ class Calender extends Component {
     return monthNumber.toString();
   };
 
+  /*
+    It convert the 12 hours time to 24 hours
+  */
   convertTime12to24 = (time12h) => {
     const [time, modifier] = time12h.split(" ");
 
