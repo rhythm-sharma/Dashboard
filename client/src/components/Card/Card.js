@@ -20,7 +20,7 @@ class Card extends Component {
 
   render() {
     return (
-      <div className="col-xs-6 col-sm-6 col-md-3 m-3">
+      <div className="m-3">
         <div className="card shadow-lg">
           <div className="card-body text-center">
             <img

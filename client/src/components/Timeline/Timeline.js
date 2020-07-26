@@ -25,8 +25,16 @@ function TimeLine(props) {
           <div className="timeline-badge info"></div>
           <div className="timeline-panel">
             <div className="timeline-time">
-              <p className="start-title">{extractTime(item.start_time)}</p>
-              <p className="text-muted">{extractTime(item.end_time)}</p>
+              <p className="start-title">
+                {" "}
+                <span className="dots dot-online"></span>{" "}
+                {extractTime(item.start_time)}
+              </p>
+              <p className="text-muted">
+                {" "}
+                <span className="dots dot-offline"></span>{" "}
+                {extractTime(item.end_time)}
+              </p>
             </div>
             <div className="timeline-date">
               <div>{item.start_time.split(" ")[0]}</div>
@@ -42,8 +50,16 @@ function TimeLine(props) {
           <div className="timeline-badge warning"></div>
           <div className="timeline-panel">
             <div className="timeline-time">
-              <p className="start-title">{extractTime(item.start_time)}</p>
-              <p className="text-muted">{extractTime(item.end_time)}</p>
+              <p className="start-title">
+                {" "}
+                <span className="dots dot-online"></span>{" "}
+                {extractTime(item.start_time)}
+              </p>
+              <p className="text-muted">
+                {" "}
+                <span className="dots dot-offline"></span>{" "}
+                {extractTime(item.end_time)}
+              </p>
             </div>
             <div className="timeline-date">
               <div>{item.start_time.split(" ")[0]}</div>

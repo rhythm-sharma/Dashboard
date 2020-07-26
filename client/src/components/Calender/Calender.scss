@@ -4,6 +4,13 @@
   }
 }
 
+.rbc-calendar {
+  white-space: nowrap;
+  overflow-x: auto;
+  max-height: 450px;
+  padding: 10px;
+}
+
 .rbc-event {
   border: 1px solid #515971 !important;
   background-color: #515971 !important;

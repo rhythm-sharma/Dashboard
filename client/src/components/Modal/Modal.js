@@ -31,20 +31,16 @@ class ActivityModal extends Component {
         size="lg"
         show={this.props.showModal}
         onHide={() => this.props.setShowModal(false)}
-        aria-labelledby="modal-sizes-title-lg"
+        aria-labelledby="activity-modal"
         className="ff-sora"
         dialogClassName="modal-90w"
       >
         <Modal.Header closeButton>
-          <Modal.Title id="modal-sizes-title-lg">Activity period</Modal.Title>
+          <Modal.Title id="activity-modal">Activity period</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div className="modal-body-container">
-            <div
-              className="btn-group mb-5"
-              role="group"
-              aria-label="Basic example"
-            >
+            <div className="btn-group mb-5" role="group" aria-label="group">
               <button
                 type="button"
                 className={

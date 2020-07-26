@@ -20,14 +20,18 @@ class App extends Component {
 
     return (
       <div className="main-container no-gutters">
-        <nav className="navbar navbar-light fixed-top bg-light">
+        <nav className="navbar navbar-light bg-light">
           <a className="navbar-brand" href="#">
             FullThrottle <b>Labs</b>
           </a>
         </nav>
         <div className="body-container">
-          <div className="card-container row p-3">
-            {usersData.fetchingState === "loading" && <h2>Loading...</h2>}
+          <div className="card-container card-group align-content-center p-3">
+            {usersData.fetchingState === "loading" && (
+              <div class="spinner-border spinner-container">
+                <span class="sr-only">Loading...</span>
+              </div>
+            )}
             {usersData.fetchingState === "success" && (
               <CardContainer usersData={usersData} />
             )}

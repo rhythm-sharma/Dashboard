@@ -9,8 +9,6 @@
 .modal-90w {
   width: 90%;
   max-width: 1440px;
-  margin: auto;
-  margin-top: 1em;
 }
 
 .modal-body-container {
@@ -41,11 +39,13 @@
 }
 
 .timeline {
-  max-width: 800px;
   margin: auto;
   list-style: none;
-  padding: 20px 0 20px;
+  padding: 20px;
   position: relative;
+  white-space: nowrap;
+  overflow-x: auto;
+  max-height: 450px;
 
   &:before {
     top: 0;
@@ -173,6 +173,22 @@
     width: 70%;
   }
 
+  .dots {
+    height: 10px;
+    width: 10px;
+
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .dot-online {
+    background-color: #28a745 !important;
+  }
+
+  .dot-offline {
+    background-color: #dc3545 !important;
+  }
+
   .timeline-date {
     width: 30%;
     text-transform: capitalize;
@@ -200,5 +216,12 @@ $breakpoint-tablet: 991px;
         margin-left: -13px;
       }
     }
+  }
+}
+
+$breakpoint-mobile: 567px;
+@media (max-width: $breakpoint-mobile) {
+  .modal-90w {
+    margin: 1.5rem;
   }
 }
