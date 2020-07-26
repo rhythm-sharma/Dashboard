@@ -27,9 +27,8 @@ class App extends Component {
         <div className="body-container">
           <div
             className={
-              usersData.fetchingState === "loading" &&
-              "loading-container " +
-                "card-container card-group align-content-center p-3"
+              "card-container card-group align-content-center p-3 " +
+              (usersData.fetchingState === "loading" && "loading-container")
             }
           >
             {usersData.fetchingState === "loading" && (
