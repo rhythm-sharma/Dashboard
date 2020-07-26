@@ -90,9 +90,9 @@ class ActivityModal extends Component {
           <Modal.Title id="modal-sizes-title-lg">Activity period</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="modal-body">
+          <div className="modal-body-container">
             <div
-              className="btn-group mb-3"
+              className="btn-group mb-5"
               role="group"
               aria-label="Basic example"
             >

@@ -2,12 +2,9 @@ import React, { Component } from "react";
 import { Calendar, momentLocalizer, Views } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import "./Calender.scss";
 
 moment.locale("en-GB");
-
-// const allViews = Object.keys(BigCalendar.Views).map(
-//   (k) => BigCalendar.Views[k]
-// );
 
 class Calender extends Component {
   constructor(props) {
@@ -27,15 +24,32 @@ class Calender extends Component {
           end: new Date(),
         },
       ],
+      views: ["week", "day"],
+      defaultView: "week",
     };
   }
 
+  //   componentDidMount() {
+  //     window.addEventListener("resize", this.resize);
+  //     this.resize();
+  //   }
+
+  //   resize = () => {
+  //     if (window.innerWidth <= 500) {
+  //       this.setState({
+  //         views: ["day"],
+  //         defaultView: "day",
+  //       });
+  //     }
+  //   };
+
   render() {
-    const { events } = this.state;
+    const { events, views, defaultView } = this.state;
     return (
       <Calendar
         events={events}
-        views={Object.keys(Views).map((k) => Views[k])}
+        defaultView={defaultView}
+        views={views}
         defaultDate={new Date()}
         step={15}
         timeslots={4}

@@ -9,9 +9,11 @@
 .modal-90w {
   width: 90%;
   max-width: 1440px;
+  margin: auto;
+  margin-top: 0.5em;
 }
 
-.modal-body {
+.modal-body-container {
   .outline {
     color: #515971;
     border-color: #515971;

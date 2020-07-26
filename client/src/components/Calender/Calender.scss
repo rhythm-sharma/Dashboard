@@ -1,0 +1,21 @@
+.rbc-toolbar {
+  span {
+    margin-bottom: 1em;
+  }
+}
+
+.rbc-event {
+  border: 1px solid #515971 !important;
+  background-color: #515971 !important;
+}
+
+.rbc-active {
+  background-color: #f3f3f5 !important;
+}
+
+$breakpoint-tablet: 680px;
+@media (max-width: $breakpoint-tablet) {
+  .rbc-toolbar {
+    flex-direction: column;
+  }
+}
