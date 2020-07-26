@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import "./Calender.scss";
+import "./EventCalender.scss";
 
 moment.locale("en-GB");
 
-class Calender extends Component {
+class EventCalender extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,7 +20,7 @@ class Calender extends Component {
   /*
     Inside componentDidMount following things are done
     1. creating an online-offline event object and pushing it to the tempEvents array 
-    2. adding the last event date to viewDate(it will redirect to given date when calender opens )
+    2. adding the last event date to viewDate(it will redirect to given date when calendar opens )
   */
   componentDidMount() {
     const activityPeriods = this.props.activityPeriods;
@@ -124,4 +124,4 @@ class Calender extends Component {
   }
 }
 
-export default Calender;
+export default EventCalender;

@@ -32,8 +32,8 @@ class App extends Component {
             }
           >
             {usersData.fetchingState === "loading" && (
-              <div class="spinner-border spinner-container">
-                <span class="sr-only">Loading...</span>
+              <div className="spinner-border spinner-container">
+                <span className="sr-only">Loading...</span>
               </div>
             )}
             {usersData.fetchingState === "success" && (

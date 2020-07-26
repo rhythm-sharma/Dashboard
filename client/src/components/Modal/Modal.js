@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Modal from "react-bootstrap/Modal";
-import Calender from "../Calender/Calender";
-import TimeLine from "../Timeline/Timeline";
+import EventCalender from "../Calendar/EventCalender";
+import TimeLine from "./Timeline";
 import "./Modal.scss";
 
 class ActivityModal extends Component {
@@ -16,7 +16,7 @@ class ActivityModal extends Component {
     It handles the layout of Modal
     Modal has two types of layout supported
     1. Timeline  
-    2. Calender
+    2. Calendar
   */
   handleViewBtnToggle = (btn) => {
     this.setState({ currentLayout: btn });
@@ -63,7 +63,7 @@ class ActivityModal extends Component {
             {currentLayout === "timeline" ? (
               <TimeLine activityPeriods={activityData.activity_periods} />
             ) : (
-              <Calender activityPeriods={activityData.activity_periods} />
+              <EventCalender activityPeriods={activityData.activity_periods} />
             )}
           </div>
         </Modal.Body>
