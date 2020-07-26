@@ -119,7 +119,7 @@ class ActivityModal extends Component {
               <ul className="timeline">{timeLine}</ul>
             ) : (
               <div>
-                <Calender />
+                <Calender activityPeriods={activityData.activity_periods} />
               </div>
             )}
           </div>

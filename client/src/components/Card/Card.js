@@ -17,8 +17,13 @@ class Card extends Component {
   render() {
     return (
       <div className="col-xs-6 col-sm-6 col-md-3 m-3">
-        <div className="card">
+        <div className="card shadow-lg">
           <div className="card-body text-center">
+            <img
+              className="avatar mb-4"
+              src={this.props.item.profile_url}
+              alt=""
+            />
             <p className="card-title font-weight-bold">
               {this.props.item.real_name || ""}
             </p>

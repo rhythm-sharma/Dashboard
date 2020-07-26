@@ -23,17 +23,14 @@ body {
   }
 
   .body-container {
+    max-width: 1440px;
+    margin: auto;
     margin-top: 50px;
     .card-container {
       margin: auto;
       justify-content: center;
       .row {
         width: 100%;
-      }
-
-      .avatar {
-        height: 75px;
-        width: 75px;
       }
     }
   }
