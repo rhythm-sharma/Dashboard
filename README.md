@@ -29,9 +29,9 @@ The project uses redux-thunk for store management. It stores the user's data whi
 
 ## Working
 
-The project runs two server locally. the frontend server runs on [http://localhost:3000](http://localhost:3000) and the mock server runs [http://localhost:5000](http://localhost:5000).
+The project runs two servers locally. The frontend server runs on [http://localhost:3000](http://localhost:3000) and the mock server runs [http://localhost:5000](http://localhost:5000).
 
-The frontend uses proxy, that redirects all the endpoint request to port 5000 from port 3000. The proxy is used to encountered the CORS issue.
+The frontend uses a proxy, that redirects all the endpoint request to port 5000 from port 3000. The proxy is used to avoid the CORS issue.
 
 On the `production`, The expressJs server renders the static files of ReactJS.
 As the project is hosted on heroku, it first builds the reactjs files then the express server renders those static files.
