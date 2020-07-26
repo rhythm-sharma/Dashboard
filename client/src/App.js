@@ -1,46 +1,43 @@
-import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { fetchUserData } from "./actions/index";
+import CardContainer from "./components/Card/CardContainer.js";
+import "./App.scss";
 
-const useFetch = (url) => {
-  const [data, setData] = useState(null);
+class App extends Component {
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(fetchUserData());
+  }
 
-  useEffect(() => {
-    fetch(url).then(async (res) => {
-      if (res.status !== 200) {
-        setData("uh oh error!");
-      }
-      const data = await res.json();
-      setData(data);
-    });
-  }, [setData, url]);
+  render() {
+    const { usersData } = this.props;
 
-  return [data];
-};
-
-function App() {
-  const [users] = useFetch("/api/v1/users");
-
-  console.log("users: ", users);
-
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+      <div className="main-container no-gutters">
+        <nav className="navbar navbar-light fixed-top bg-light">
+          <a className="navbar-brand" href="#">
+            FullThrottle <b>Labs</b>
+          </a>
+        </nav>
+        <div className="body-container">
+          <div className="card-container row p-3">
+            {usersData.fetchingState === "loading" && <h2>Loading...</h2>}
+            {usersData.fetchingState === "success" && (
+              <CardContainer usersData={usersData} />
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default App;
+function mapStateToProps(state) {
+  const { usersData } = state;
+  return {
+    usersData,
+  };
+}
+
+export default connect(mapStateToProps)(App);

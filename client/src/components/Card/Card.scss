@@ -1,0 +1,25 @@
+.card {
+  width: 205px;
+  margin: auto;
+  .card-body {
+    .card-sub-title {
+      font-size: 12px !important;
+    }
+    button {
+      color: #515971;
+      border-color: #515971;
+      &:hover {
+        color: #515971;
+        background-color: #f3f3f5;
+      }
+      &:focus {
+        box-shadow: none !important;
+      }
+    }
+    .btn-outline-info:not(:disabled):not(.disabled):active {
+      color: #fff;
+      background-color: #515971;
+      border-color: #515971;
+    }
+  }
+}
