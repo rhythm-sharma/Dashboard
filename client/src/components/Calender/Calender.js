@@ -12,7 +12,7 @@ class Calender extends Component {
     this.state = {
       events: [],
       views: ["week", "day"],
-      defaultView: "week",
+      defaultView: "day",
       viewDate: null,
     };
   }
