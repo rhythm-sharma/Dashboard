@@ -13,7 +13,7 @@ Install the dependencies.
 ### `npm run dev-start`
 
 Runs the app in the development mode.
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser and Open [http://localhost:5000](http://localhost:5000) for mock server
 
 ## Mock Server
 
@@ -34,4 +34,5 @@ The project runs two servers locally. The frontend server runs on [http://localh
 The frontend uses a proxy, that redirects all the endpoint request to port 5000 from port 3000. The proxy is used to avoid the CORS issue.
 
 On the `production`, The expressJs server renders the static files of ReactJS.
-As the project is hosted on heroku, it first builds the reactjs files then the express server renders those static files.
+As the project is hosted on heroku, heroku first builds the reactjs files then the express server renders those static files.
+`heroku-postbuild` is used to build the reactjs files.
