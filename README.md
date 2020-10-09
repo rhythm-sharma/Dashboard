@@ -1,7 +1,3 @@
-## Live Link
-
-#### https://serene-taiga-66583.herokuapp.com/
-
 ## Available Scripts
 
 In the project directory, you can run:
